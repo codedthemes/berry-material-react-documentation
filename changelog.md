@@ -4,8 +4,6 @@ description: Defines change log
 
 # Changelog
 
-## 
-
 ## v1.2.0 - \(12-06-2021\)
 
 **Added**
@@ -43,7 +41,38 @@ description: Defines change log
 
 ### Migration from v1.1.0 to v1.2.0
 
-Coming Soon
+#### Change in naming of color variable to make theme scalable for multiple color options.
+
+| Old | New |
+| :--- | :--- |
+| blue50 | primaryLight |
+| blue200 | primary200 |
+| blue500 | primaryMain |
+| blue600 | primaryDark |
+| blue800 | primary800 |
+| deepPurple50 | secondaryLight |
+| deepPurple200 | secondary200 |
+| deepPurple500 | secondaryMain |
+| deepPurple600 | secondaryDark |
+| deepPurple800 | secondary800 |
+| A100 | successLight |
+| A200 | success200 |
+| A400 | successMain |
+| A700 | successDark |
+| red200 | errorLight |
+| red500 | errorMain |
+| red800 | errorDark |
+| deepOrange50 | orangeLight |
+| deepOrange200 | orangeMain |
+| deepOrange800 | orangeDark |
+| amber50 | warningLight |
+| amber100 | warningMain |
+| amber500 | warningDark |
+| backgroundDark | darkBackground |
+| paperDark | darkPaper |
+| textDarkTitle | darkTextTitle |
+| textDarkPrimary | darkTextPrimary |
+| textDarkSecondary | darkTextSecondary |
 
 ## v1.1.0 - \(28-05-2021\)
 
