@@ -18,19 +18,19 @@ TypeScript version
 
 **Styling**
 
-* Color Presets with options in Live Customizer
-* Button shadow color options
-* Animation
+* ~~Color Presets with options in Live Customizer~~
+* ~~Button shadow color options~~
+* ~~Animation~~
 * Megamenu
 * Search filter options menu
 
 **Forms**
 
-* Form Wizards
-* Form Layouts
-  * Multi-column
-  * With Label
-  * Horizontal
-  * Sticky Header
-  * Action bar
+* ~~Form Wizards~~
+* ~~Form Layouts~~
+  * ~~Multi-column~~
+  * ~~With Label~~
+  * ~~Horizontal~~
+  * ~~Sticky Header~~
+  * ~~Action bar~~
 
