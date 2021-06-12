@@ -12,20 +12,61 @@ The whole theme can be configured from the folder **`..\src\themes`** . Theme in
 
 {% code title="index.js" %}
 ```javascript
-import {createTheme} from '@material-ui/core/styles';
-import value from '../assets/scss/_themes-vars.module.scss'; // central place for all colors
-import {componentStyleOverrides} from './compStyleOverride';
-import {themePalatte} from './palatte';
-import {themeTypography} from './typography';
+import { createTheme } from '@material-ui/core/styles';
 
+// assets
+import colors from '../assets/scss/_themes-vars.module.scss';
+import theme1 from '../assets/scss/_theme1.module.scss';
+import theme2 from '../assets/scss/_theme2.module.scss';
+import theme3 from '../assets/scss/_theme3.module.scss';
+import theme4 from '../assets/scss/_theme4.module.scss';
+import theme5 from '../assets/scss/_theme5.module.scss';
+import theme6 from '../assets/scss/_theme6.module.scss';
+
+// project imports
+import { componentStyleOverrides } from './compStyleOverride';
+import { themePalette } from './palette';
+import { themeTypography } from './typography';
+import { customShadows } from './shadows';
+
+/**
+ * Represent theme style and structure as per Material-UI
+ * @param {JsonObject} customization customization parameter object
+ */
 export function theme(customization) {
-    let navObject = {
+    let color;
+    switch (customization.presetColor) {
+        case 'theme1':
+            color = theme1;
+            break;
+        case 'theme2':
+            color = theme2;
+            break;
+        case 'theme3':
+            color = theme3;
+            break;
+        case 'theme4':
+            color = theme4;
+            break;
+        case 'theme5':
+            color = theme5;
+            break;
+        case 'theme6':
+            color = theme6;
+            break;
+        case 'default':
+        default:
+            color = colors;
+    }
+
+    let themeOption = {
+        colors: color,
         heading: '',
         paper: '',
         backgroundDefault: '',
         background: '',
-        textDarkPrimary: '',
-        textDarkSecondary: '',
+        darkTextPrimary: '',
+        darkTextSecondary: '',
         textDark: '',
         menuSelected: '',
         menuSelectedBack: '',
@@ -35,35 +76,35 @@ export function theme(customization) {
 
     switch (customization.navType) {
         case 'dark':
-            navObject.paper = value.darkLevel2;
-            navObject.backgroundDefault = value.paperDark;
-            navObject.background = value.backgroundDark;
-            navObject.textDarkPrimary = value.textDarkPrimary;
-            navObject.textDarkSecondary = value.textDarkSecondary;
-            navObject.textDark = value.textDarkPrimary;
-            navObject.menuSelected = value.blue500;
-            navObject.menuSelectedBack = value.darkLevel1;
-            navObject.divider = value.textDarkPrimary;
-            navObject.heading = value.textDarkTitle;
+            themeOption.paper = color.darkLevel2;
+            themeOption.backgroundDefault = color.darkPaper;
+            themeOption.background = color.darkBackground;
+            themeOption.darkTextPrimary = color.darkTextPrimary;
+            themeOption.darkTextSecondary = color.darkTextSecondary;
+            themeOption.textDark = color.darkTextPrimary;
+            themeOption.menuSelected = color.darkSecondaryMain;
+            themeOption.menuSelectedBack = color.darkSecondaryMain + 15;
+            themeOption.divider = color.darkTextPrimary;
+            themeOption.heading = color.darkTextTitle;
             break;
         case 'light':
         default:
-            navObject.paper = value.paper;
-            navObject.backgroundDefault = value.paper;
-            navObject.background = value.blue50;
-            navObject.textDarkPrimary = value.grey700;
-            navObject.textDarkSecondary = value.grey500;
-            navObject.textDark = value.grey900;
-            navObject.menuSelected = value.deepPurple600;
-            navObject.menuSelectedBack = value.blue50;
-            navObject.divider = value.grey200;
-            navObject.heading = value.grey900;
+            themeOption.paper = color.paper;
+            themeOption.backgroundDefault = color.paper;
+            themeOption.background = color.primaryLight;
+            themeOption.darkTextPrimary = color.grey700;
+            themeOption.darkTextSecondary = color.grey500;
+            themeOption.textDark = color.grey900;
+            themeOption.menuSelected = color.secondaryDark;
+            themeOption.menuSelectedBack = color.secondaryLight;
+            themeOption.divider = color.grey200;
+            themeOption.heading = color.grey900;
             break;
     }
 
     return createTheme({
-        direction: customization.rtlLayout ? 'rtl' : 'ltr', // theme direction
-        palette: themePalatte(navObject), // color palatte
+        direction: customization.rtlLayout ? 'rtl' : 'ltr',
+        palette: themePalette(themeOption),
         mixins: {
             toolbar: {
                 minHeight: '48px',
@@ -73,89 +114,182 @@ export function theme(customization) {
                 }
             }
         },
-        typography: themeTypography(navObject), // typography
-        components: componentStyleOverrides(navObject) // overrided component style
+        customShadows: customShadows(customization.navType, themeOption),
+        typography: themeTypography(themeOption),
+        components: componentStyleOverrides(themeOption)
     });
 }
 
 export default theme;
-
 ```
 {% endcode %}
 
 As you can see colors for the theme came from the central location ``**`import value from '../assets/scss/_themes-vars.module.scss';`**
 
+{% tabs %}
+{% tab title="\_themes-vars.module.scss" %}
 ```css
-// Paper & Background Color
+// paper & background
 $paper: #ffffff;
-$background: #ffffff;
 
-// Primary Colors
-$blue50: #e3f2fd;
-...
+// primary
+$primaryLight: #e3f2fd;
+$primaryMain: #2196f3;
+$primaryDark: #1e88e5;
+$primary200: #90caf9;
+$primary800: #1565c0;
 
-// Success Colors
-$A100: #b9f6ca;
-..
+// secondary
+$secondaryLight: #ede7f6;
+$secondaryMain: #673ab7;
+$secondaryDark: #5e35b1;
+$secondary200: #b39ddb;
+$secondary800: #4527a0;
 
-// Purple Colors
-$deepPurple50: #ede7f6;
-...
+// success Colors
+$successLight: #b9f6ca;
+$success200: #69f0ae;
+$successMain: #00e676;
+$successDark: #00c853;
 
-// Error Colors
-$red200: #ef9a9a;
-...
+// error
+$errorLight: #ef9a9a;
+$errorMain: #f44336;
+$errorDark: #c62828;
 
-// Orange Colors
-$deepOrange50: #fbe9e7;
-...
+// orange
+$orangeLight: #fbe9e7;
+$orangeMain: #ffab91;
+$orangeDark: #d84315;
 
-// Warning Colors
-$amber50: #fff8e1;
-...
+// warning
+$warningLight: #fff8e1;
+$warningMain: #ffe57f;
+$warningDark: #ffc107;
 
-// Grey Colors
+// grey
 $grey50: #fafafa;
-...
+$grey100: #f5f5f5;
+$grey200: #eeeeee;
+$grey300: #e0e0e0;
+$grey500: #9e9e9e;
+$grey600: #757575;
+$grey700: #616161;
+$grey900: #212121;
 
-// Dark Theme Variants
+//-----------------------|| DARK THEME VARIANTS ||-----------------------//
 
-$darkLevel1: #29314f;
-...
+// paper & background
+$darkBackground: #1a223f; // level 3
+$darkPaper: #111936; // level 4
 
-$textDarkTitle: #d7dcec;
-...
+// dark 800 & 900
+$darkLevel1: #29314f; // level 1
+$darkLevel2: #212946; // level 2
 
-// this will use in javascript
+// primary dark
+$darkPrimaryLight: #e3f2fd;
+$darkPrimaryMain: #2196f3;
+$darkPrimaryDark: #1e88e5;
+$darkPrimary200: #90caf9;
+$darkPrimary800: #1565c0;
+
+// secondary dark
+$darkSecondaryLight: #d1c4e9;
+$darkSecondaryMain: #7c4dff;
+$darkSecondaryDark: #651fff;
+$darkSecondary200: #b39ddb;
+$darkSecondary800: #6200ea;
+
+// text variants
+$darkTextTitle: #d7dcec;
+$darkTextPrimary: #bdc8f0;
+$darkTextSecondary: #8492c4;
+
+//-----------------------|| JAVASCRIPT ||-----------------------//
+
 :export {
+    // paper & background
     paper: $paper;
-    ...
 
-    darkLevel1: $darkLevel1;
-    ...
+    // primary
+    primaryLight: $primaryLight;
+    primary200: $primary200;
+    primaryMain: $primaryMain;
+    primaryDark: $primaryDark;
+    primary800: $primary800;
 
-    blue50: $blue50;
-    ...
+    // secondary
+    secondaryLight: $secondaryLight;
+    secondary200: $secondary200;
+    secondaryMain: $secondaryMain;
+    secondaryDark: $secondaryDark;
+    secondary800: $secondary800;
 
-    A100: $A100;
-    ...
+    // success
+    successLight: $successLight;
+    success200: $success200;
+    successMain: $successMain;
+    successDark: $successDark;
 
-    deepPurple50: $deepPurple50;
-    ...
+    // error
+    errorLight: $errorLight;
+    errorMain: $errorMain;
+    errorDark: $errorDark;
 
-    amber50: $amber50;
-    ...
+    // orange
+    orangeLight: $orangeLight;
+    orangeMain: $orangeMain;
+    orangeDark: $orangeDark;
 
+    // warning
+    warningLight: $warningLight;
+    warningMain: $warningMain;
+    warningDark: $warningDark;
+
+    // grey
     grey50: $grey50;
-    ...
-    red200: $red200;
-    ...
+    grey100: $grey100;
+    grey200: $grey200;
+    grey300: $grey300;
+    grey500: $grey500;
+    grey600: $grey600;
+    grey700: $grey700;
+    grey900: $grey900;
 
-    deepOrange50: $deepOrange50;
-    ...
+    //-----------------------|| DARK THEME VARIANTS ||-----------------------//
+
+    // paper & background
+    darkPaper: $darkPaper;
+    darkBackground: $darkBackground;
+
+    // dark 800 & 900
+    darkLevel1: $darkLevel1;
+    darkLevel2: $darkLevel2;
+
+    // text variants
+    darkTextTitle: $darkTextTitle;
+    darkTextPrimary: $darkTextPrimary;
+    darkTextSecondary: $darkTextSecondary;
+
+    // primary dark
+    darkPrimaryLight: $darkPrimaryLight;
+    darkPrimaryMain: $darkPrimaryMain;
+    darkPrimaryDark: $darkPrimaryDark;
+    darkPrimary200: $darkPrimary200;
+    darkPrimary800: $darkPrimary800;
+
+    // secondary dark
+    darkSecondaryLight: $darkSecondaryLight;
+    darkSecondaryMain: $darkSecondaryMain;
+    darkSecondaryDark: $darkSecondaryDark;
+    darkSecondary200: $darkSecondary200;
+    darkSecondary800: $darkSecondary800;
 }
 
 ```
+{% endtab %}
+{% endtabs %}
 
 You can check other settings like theme typography, palette, and components style override in the same folder. **`..src\themes`**
 
