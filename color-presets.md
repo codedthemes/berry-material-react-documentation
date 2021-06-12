@@ -1,10 +1,10 @@
 ---
-description: How to change available color presets i.e. available from v1.2.0
+description: How to change available color presets
 ---
 
 # Color Presets
 
-Berry come up with 6+ theme color presets. You can now change the available color presets by doing following steps
+Berry come up with 6+ theme color presets. You can now change the available color presets by doing the following steps:
 
 Color Preset files are available in **`src\assets\scss\`** directory.
 
