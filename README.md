@@ -14,6 +14,8 @@ Berry comes with plenty of ready-to-use Material-UI components that will help yo
 
 We’ve followed the best industry standards to make our product easy, fast & highly scalable to work with. It's made with this high-end technology stack - React Hooks, Components, Create React App & Redux.
 
+#### Customer Review
+
 > We're just getting started with this new theme, but we liked it enough that we decided to import our application into this codebase rather than the other way around. Impressive number of custom components and original work \(vs. some other themes that seem to just be repackaged versions of Material UI\). It is clear the developers have put some work in here, and we are excited to see what updates are rolled out over the next year.
 >
 > - **oxbird**
