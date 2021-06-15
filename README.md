@@ -8,11 +8,15 @@ description: Berry - React Admin Template Documentation
 
 ![](.gitbook/assets/og-berry-admin-template.png)
 
-[Berry](https://berrydashboard.io) is the most `developer-friendly` & highly customizable React Admin Template based on [Material-UI](http://material-ui.com/).
+[Berry](https://berrydashboard.io) is `developer-friendly` & highly customizable React Admin Template based on [Material-UI](http://material-ui.com/).
 
 Berry comes with plenty of ready-to-use Material-UI components that will help you to build your site faster and saves your development time.
 
 We’ve followed the best industry standards to make our product easy, fast & highly scalable to work with. It's made with this high-end technology stack - React Hooks, Components, Create React App & Redux.
+
+> We're just getting started with this new theme, but we liked it enough that we decided to import our application into this codebase rather than the other way around. Impressive number of custom components and original work \(vs. some other themes that seem to just be repackaged versions of Material UI\). It is clear the developers have put some work in here, and we are excited to see what updates are rolled out over the next year.
+>
+> - **oxbird**
 
 ## Technology Stack
 
