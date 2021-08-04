@@ -68,21 +68,9 @@ You can control this with the `homepage` field in your **`package.json`**
 ```
 {% endcode %}
 
-To deploy it for **subdirectory** `i.e http://example.com/subdirectory/`
-
-{% code title="package.json" %}
-```javascript
-"homepage" : "http://example.com/subdirectory/"
-```
-{% endcode %}
-
-You also need to set base-name in **`config.js`** at `'../src/config/'`
-
-{% code title="config.js" %}
-```javascript
-basename: '/subdirectory'
-```
-{% endcode %}
+{% hint style="danger" %}
+Deploying to subdirectory is stopped after migrating to 6.0.0-beta.0 of react-route. Watch this issue for more: [https://github.com/ReactTraining/react-router/issues/7216](https://github.com/ReactTraining/react-router/issues/7216)
+{% endhint %}
 
 {% hint style="info" %}
 **You’ll need to have Node v12.x.x or later on your local development machine** \(but it’s not required on the server\). You can use [nvm](https://github.com/creationix/nvm#installation) \(macOS/Linux\) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to easily switch Node versions between different projects.

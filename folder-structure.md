@@ -39,6 +39,7 @@ berry-material-react
 │   ├── routes             -> different route based on layouts
 │   ├── store              -> Redux actions, reducers
 │   ├── themes             -> Contains application style and theme
+│   ├── types              -> common types for Typescript. Exist only in Typescript
 │   ├── ui-component       -> Template custom components
 │   ├── utils
 │   │   ├── locales        -> different locale json files

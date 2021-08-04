@@ -17,48 +17,38 @@ You can use the below explanation to add/remove menu routes and their menu items
 Open**`...\src\routes\index.js`**You will find the below example code. In the below code we have shown four different routes. **`<MainRoutes/>`** is the main layout routing you see after login.
 
 {% tabs %}
-{% tab title="\\routes\\index.js" %}
+{% tab title="Javascript" %}
 ```javascript
-import React, {Suspense} from 'react';
-import {Redirect, Switch} from 'react-router-dom';
-import {AnimatePresence} from 'framer-motion';
+...
+...
 
-import config from './../config';
-import MainRoutes from './MainRoutes';
-import LoginRoutes from './LoginRoutes';
+// ===========================|| ROUTING RENDER ||=========================== //
 
-import Loader from '../ui-component/extended/Loader/Loader';
+export default function ThemeRoutes() {
+    return useRoutes([
+        { path: '/', element: <PagesLanding /> }, 
+        AuthenticationRoutes, 
+        LoginRoutes, 
+        MainRoutes]);
+}
 
-import AuthenticationRoutes from './AuthenticationRoutes';
-import DocsRoutes from './DocsRoutes';
+```
+{% endtab %}
 
-const Routes = () => {
-    return (
-        <AnimatePresence>
-            <Suspense fallback={<Loader />}>
-                <Switch>
-                    <Redirect exact from="/" to={config.defaultPath} />
-                    <>
-                        {/* Routes for authetication pages */}
-                        <AuthenticationRoutes />
+{% tab title="Typescript" %}
+```typescript
+...
+...
 
-                        {/* Routes for documentation pages */}
-                        <DocsRoutes />
+// ==============================|| ROUTING RENDER ||======================== //
 
-                        {/* Route for login */}
-                        <LoginRoutes />
-
-                        {/* Routes for main layouts */}
-                        <MainRoutes />
-                    </>
-                </Switch>
-            </Suspense>
-        </AnimatePresence>
-    );
-};
-
-export default Routes;
-
+export default function ThemeRoutes() {
+    return useRoutes([
+        { path: '/', element: <PagesLanding /> }, 
+        AuthenticationRoutes, 
+        LoginRoutes, 
+        MainRoutes]);
+}
 
 ```
 {% endtab %}
@@ -68,45 +58,73 @@ export default Routes;
 
 To add one more menu item in ``**`<MainRoutes />`**, update the following file at the same location **`...\src\routes\MainRoutes.js`**
 
+{% tabs %}
+{% tab title="JavaScript" %}
 {% code title="MainRoutes.js" %}
 ```javascript
 ...
 ...
-const SamplePage = lazy(() => import('../views/sample-page'));
+const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 // import new view and save it in constant. for e.g
-const NewMenu = lazy(() => import('../views/new-menu'));
+const NewMenu = Loadable(lazy(() => import('views/new-menu')));
 
-const MainRoutes = () => {
-    const location = useLocation();
-
-    return (
-        <Route
-            path={[
-                ...
-                ...
-                '/sample-page', 
-                '/new-menu' // add new path like this
-            ]}
-        >
-            <MainLayout showBreadcrumb={true}>
-                <Switch location={location} key={location.pathname}>
-                    <AuthGuard>
-                        ...
-                        ...
-                        <Route path="/sample-page" component={SamplePage} />
-                        // add new route after this. like below
-                        <Route path="/new-menu" component={NewMenu} />                        
-                    </AuthGuard>
-                </Switch>
-            </MainLayout>
-        </Route>
-    );
+const MainRoutes = {
+    path: '/',
+    element: (
+        <AuthGuard>
+            <MainLayout />
+        </AuthGuard>
+    ),
+    children: [
+        {
+            path: '/sample-page',
+            element: <SamplePage />
+        },
+        {
+            path: '/newmenu',
+            element: <NewMenu />
+        }
+    ]
 };
 
 export default MainRoutes;
 
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Typescript" %}
+```typescript
+...
+...
+const SamplePage = Loadable(lazy(() => import('views/sample-page')));
+// import new view and save it in constant. for e.g
+const NewMenu = Loadable(lazy(() => import('views/new-menu')));
+
+const MainRoutes = {
+    path: '/',
+    element: (
+        <AuthGuard>
+            <MainLayout />
+        </AuthGuard>
+    ),
+    children: [
+        {
+            path: '/sample-page',
+            element: <SamplePage />
+        },
+        {
+            path: '/newmenu',
+            element: <NewMenu />
+        }
+    ]
+};
+
+export default MainRoutes;
+
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 Any route added in **`<MainLayout>`** will automatically go through**`<AuthGuard>`**

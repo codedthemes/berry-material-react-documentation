@@ -12,7 +12,7 @@ Firebase Authentication set by default
 
 ## How does it work?
 
-Only authenticated users can access dashboard pages. If a user is not authenticated, the user redirected to the login page.
+Only authenticated users can access dashboard pages. If a user is not authenticated, the user is redirected to the login page.
 
 We used two guards **`GuestGuard`** and **`AuthGuard`** . Guards have been configured in **`src\utils\route-guard\`**  folder.
 

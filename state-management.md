@@ -79,50 +79,105 @@ Reducers are functions that take the current state and an action as arguments **
 
 Creating the Root Reducer - A Redux app really only has one reducer function: the "root reducer" function
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
+// project imports
+import config from 'config';
+
+// action - state management
 import * as actionTypes from './actions';
-import config from '../config';
 
 export const initialState = {
-    isOpen: 'dashboard', //for active default menu
+    isOpen: [], // for active default menu
+    fontFamily: config.fontFamily,
+    borderRadius: config.borderRadius,
+    outlinedFilled: config.outlinedFilled,
     navType: config.theme,
+    presetColor: config.presetColor,
     locale: config.i18n,
-    rtlLayout: false, // rtlLayout: config.rtlLayout,
+    rtlLayout: config.rtlLayout,
     opened: true
 };
 
+// ===========================|| CUSTOMIZATION REDUCER ||===================== //
+
 const customizationReducer = (state = initialState, action) => {
+    let id;
     switch (action.type) {
         case actionTypes.MENU_OPEN:
+            id = action.id;
             return {
                 ...state,
-                isOpen: action.isOpen
+                isOpen: [id]
             };
+
         case actionTypes.MENU_TYPE:
             return {
                 ...state,
                 navType: action.navType
             };
-        case actionTypes.THEME_LOCALE:
-            return {
-                ...state,
-                locale: action.locale
-            };
-        case actionTypes.THEME_RTL:
-            return {
-                ...state,
-                rtlLayout: action.rtlLayout
-            };
-        case actionTypes.SET_MENU:
-            return {
-                ...state,
-                opened: action.opened
-            };
+        ...
+        ...
+        ...
         default:
             return state;
     }
 };
 
 export default customizationReducer;
+
 ```
+{% endtab %}
+
+{% tab title="Typescript" %}
+```typescript
+// project imports
+import config from 'config';
+
+// action - state management
+import * as actionTypes from './actions';
+import { CustomizationStateProps, DefaultRootStateProps } from 'types';
+
+export const initialState: DefaultRootStateProps['customization'] = {
+    isOpen: [], // for active default menu
+    fontFamily: config.fontFamily,
+    borderRadius: config.borderRadius,
+    outlinedFilled: config.outlinedFilled,
+    navType: config.theme,
+    presetColor: config.presetColor,
+    locale: config.i18n,
+    rtlLayout: config.rtlLayout,
+    opened: true
+};
+
+// =========================|| CUSTOMIZATION REDUCER ||====================== //
+
+const customizationReducer = (state = initialState, action: CustomizationStateProps) => {
+    let id;
+    switch (action.type) {
+        case actionTypes.MENU_OPEN:
+            id = action.id;
+            return {
+                ...state,
+                isOpen: [id]
+            };
+
+        case actionTypes.MENU_TYPE:
+            return {
+                ...state,
+                navType: action.navType
+            };
+        ...
+        ...
+        default:
+            return state;
+    }
+};
+
+export default customizationReducer;
+
+```
+{% endtab %}
+{% endtabs %}
 

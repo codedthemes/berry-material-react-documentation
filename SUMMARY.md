@@ -10,6 +10,7 @@
 * [Axios API Calls](axios-api-calls.md)
 * [Routing](routing.md)
 * [Project Configuration](project-config.md)
+* [Color Presets](color-presets.md)
 * [Theme/Style Configuration](theme-config.md)
 * [Integration](integration.md)
 * [Resources](resources.md)

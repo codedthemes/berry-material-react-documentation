@@ -24,6 +24,8 @@ Data for locale files exist at **`src\utils\locales`**
 
 To change Locale, open file **`src\config.js`** file and set language
 
+{% tabs %}
+{% tab title="JavaScript" %}
 {% code title="config.js" %}
 ```javascript
 const config = {
@@ -33,52 +35,121 @@ const config = {
 }
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Typescript" %}
+```typescript
+import { PaletteMode } from '@material-ui/core';
+
+const config: {
+    ...
+    i18n: string;
+    ...    
+    };
+} = {
+    ...
+    // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
+    i18n: 'en',
+    ...
+};
+
+export default config;
+
+```
+{% endtab %}
+{% endtabs %}
 
 Open file **`App.js`** and apply **IntlProvider**
 
+{% tabs %}
+{% tab title="JavaScript" %}
 {% code title="App.js" %}
 ```javascript
-import { IntlProvider } from 'react-intl';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-function loadLocaleData(locale) {
-    switch (locale) {
-      case 'fr':
-        return import('./../compiled-lang/fr.json');
-      case 'ro':
-        return import('./../compiled-lang/ro.json');
-      case 'zh':
-        return import('./../compiled-lang/zh.json');
-      default:
-        return import('./../compiled-lang/en.json');
-    }
-}
+import { ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline, StyledEngineProvider } from '@material-ui/core';
+
+// routing
+import Routes from 'routes';
+
+// defaultTheme
+import themes from 'themes';
+
+// project imports
+import Locales from 'ui-component/Locales';
+...
+...
+
+// ===========================|| APP ||=========================== //
 
 const App = () => {
     const customization = useSelector((state) => state.customization);
-    const [messages, setMessages] = useState();
-
-    useEffect(() => {
-        loadLocaleData(customization.locale).then(d=>{
-            setMessages(d.default);
-        });
-    }, [customization]);
 
     return (
-        <React.Fragment>
-        { messages && <IntlProvider
-            locale='fr'
-            defaultLocale="en"
-            messages={messages}
-            >
-            ...
-            ...
-            ...
-        </IntlProvider> }
-        </React.Fragment>
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={themes(customization)}>
+                <CssBaseline />
+               ...
+                <Locales>
+                    ...
+                </Locales>
+               ...
+            </ThemeProvider>
+        </StyledEngineProvider>
     );
 };
 
 export default App;
+
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Typescript" %}
+```typescript
+import { useSelector } from 'react-redux';
+
+import { ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline, StyledEngineProvider } from '@material-ui/core';
+
+// routing
+import Routes from 'routes';
+
+// store
+import { DefaultRootStateProps } from 'types';
+
+// defaultTheme
+import themes from 'themes';
+
+// project imports
+import Locales from 'ui-component/Locales';
+...
+...
+
+// ==============================|| APP ||============================== //
+
+const App = () => {
+    const customization = useSelector((state: DefaultRootStateProps) => state.customization);
+
+    return (
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={themes(customization)}>
+                <CssBaseline />
+               ...
+                <Locales>
+                    ...
+                </Locales>
+               ...
+            </ThemeProvider>
+        </StyledEngineProvider>
+    );
+};
+
+export default App;
+
+```
+{% endtab %}
+{% endtabs %}
 

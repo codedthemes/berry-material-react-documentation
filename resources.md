@@ -1,12 +1,16 @@
+---
+description: Package and other used resources
+---
+
 # Resources
 
 | Name | Info | Link |
 | :--- | :--- | :--- |
 | Reactjs | 17.0.2 | [https://reactjs.org/](https://reactjs.org/) |
-| Material-UI | 5.0.0-alpha.33 | [https://material-ui.com](%20%20https://material-ui.com) |
+| Material-UI | 5.0.0-beta.1 | [https://material-ui.com](%20%20https://material-ui.com) |
 | Redux |  | [https://react-redux.js.org/](https://react-redux.js.org/) |
 | Create React App |  |  |
-| React Router |  | [https://reactrouter.com/](https://reactrouter.com/) |
+| React Router | 6.0.0-beta.0 | [https://reactrouter.com/](https://reactrouter.com/) |
 | React Script |  |  |
 | React Spring | Animation |  |
 | Axios |  | [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios) |

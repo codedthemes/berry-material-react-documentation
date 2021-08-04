@@ -111,7 +111,7 @@ Berry has a single source of truth for default configuration which lets users ma
 </table>
 
 {% tabs %}
-{% tab title="config.js" %}
+{% tab title="javascript" %}
 ```javascript
 const config = {
     // basename: only at build time to set, and don't add '/' at end off BASENAME for breadcrumbs,  like '/berry-material-react/react/default'
@@ -139,6 +139,67 @@ const config = {
     auth0: {
         client_id: 'client_id',
         domain: 'demo-localhost.us.auth0.com'
+    }
+};
+
+export default config;
+
+```
+{% endtab %}
+
+{% tab title="Typescript" %}
+```typescript
+import { PaletteMode } from '@material-ui/core';
+
+const config: {
+    basename: string;
+    defaultPath: string;
+    fontFamily: string;
+    borderRadius: number;
+    outlinedFilled: boolean;
+    theme: PaletteMode;
+    presetColor: string;
+    i18n: string;
+    rtlLayout: boolean;
+    jwt: {
+        secret: string;
+        timeout: string;
+    };
+    firebase: {
+        apiKey: string;
+        authDomain: string;
+        projectId: string;
+        storageBucket: string;
+        messagingSenderId: string;
+        appId: string;
+        measurementId: string;
+    };
+    auth0: {
+        client_id: string;
+        domain: string;
+    };
+} = {
+    // basename: only at build time to set, and Don&apos;t add '/' at end off 
+    // BASENAME for breadcrumbs, also Don&apos;t put only '/' use blank('') instead
+    // like '/berry-material-react/react/default'
+    basename: '',
+    defaultPath: '/dashboard/default',
+    fontFamily: `'Roboto', sans-serif`,
+    borderRadius: 12,
+    outlinedFilled: true,
+    theme: 'light', // light, dark
+    presetColor: 'default', // default, theme1, theme2, theme3, theme4, theme5
+    // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
+    i18n: 'en',
+    rtlLayout: false,
+    jwt: {
+        ...
+    },
+    firebase: {
+        ...
+    },
+    auth0: {
+        ...
     }
 };
 

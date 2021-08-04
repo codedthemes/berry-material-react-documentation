@@ -4,66 +4,84 @@ description: Defines core of theme. How theme is being set using Material-UI.
 
 # Theme/Style Configuration
 
-Customize Material-UI with your theme. You can change the colors, the typography, and much more. Material-UI provides flexibility to change the style of the project in a single place and on top of it, we made it more centralize and consistent by proper file structure.
+Customize Berry with your theme. You can change the colors, the typography, and much more. Material-UI provides flexibility to change the style of the project in a single place and on top of it, we made it more centralize and consistent by proper file structure.
 
 ## Theme configuration
 
-The Entire theme can be configured from the folder **`..\src\themes`** . Theme initialization starts in**`index.js`** , where palette, typography, and component's overridable style exist.
+The whole theme can be configured from the folder **`..\src\themes`** . Theme initialization starts in**`index.js`** , where palette, typography, and component's overridable style exist.
 
+{% tabs %}
+{% tab title="JavaScript" %}
 {% code title="index.js" %}
 ```javascript
-import {createTheme} from '@material-ui/core/styles';
-import value from '../assets/scss/_themes-vars.module.scss'; // central place for all colors
-import {componentStyleOverrides} from './compStyleOverride';
-import {themePalatte} from './palatte';
-import {themeTypography} from './typography';
+import { createTheme } from '@material-ui/core/styles';
 
-export function theme(customization) {
-    let navObject = {
-        heading: '',
+// assets
+import colors from 'assets/scss/_themes-vars.module.scss';
+import theme1 from 'assets/scss/_theme1.module.scss';
+import theme2 from 'assets/scss/_theme2.module.scss';
+import theme3 from 'assets/scss/_theme3.module.scss';
+import theme4 from 'assets/scss/_theme4.module.scss';
+import theme5 from 'assets/scss/_theme5.module.scss';
+import theme6 from 'assets/scss/_theme6.module.scss';
+
+// project imports
+import componentStyleOverrides from './compStyleOverride';
+import themePalette from './palette';
+import themeTypography from './typography';
+import customShadows from './shadows';
+
+/**
+ * Represent theme style and structure as per Material-UI
+ * @param {JsonObject} customization customization parameter object
+ */
+export function theme(config) {
+    let color;
+    switch (config.presetColor) {
+        case 'theme1':
+            color = theme1;
+            break;
+        case 'theme2':
+            color = theme2;
+            break;
+        case 'theme3':
+            color = theme3;
+            break;
+        case 'theme4':
+            color = theme4;
+            break;
+        case 'theme5':
+            color = theme5;
+            break;
+        case 'theme6':
+            color = theme6;
+            break;
+        case 'default':
+        default:
+            color = colors;
+    }
+
+    const themeOption = {
+        ...
         paper: '',
-        backgroundDefault: '',
-        background: '',
-        textDarkPrimary: '',
-        textDarkSecondary: '',
-        textDark: '',
-        menuSelected: '',
-        menuSelectedBack: '',
-        divider: '',
-        customization: customization
+        ...
     };
 
-    switch (customization.navType) {
+    switch (config.navType) {
         case 'dark':
-            navObject.paper = value.darkLevel2;
-            navObject.backgroundDefault = value.paperDark;
-            navObject.background = value.backgroundDark;
-            navObject.textDarkPrimary = value.textDarkPrimary;
-            navObject.textDarkSecondary = value.textDarkSecondary;
-            navObject.textDark = value.textDarkPrimary;
-            navObject.menuSelected = value.blue500;
-            navObject.menuSelectedBack = value.darkLevel1;
-            navObject.divider = value.textDarkPrimary;
-            navObject.heading = value.textDarkTitle;
+            themeOption.paper = color.darkLevel2;
+            ...
             break;
         case 'light':
         default:
-            navObject.paper = value.paper;
-            navObject.backgroundDefault = value.paper;
-            navObject.background = value.blue50;
-            navObject.textDarkPrimary = value.grey700;
-            navObject.textDarkSecondary = value.grey500;
-            navObject.textDark = value.grey900;
-            navObject.menuSelected = value.deepPurple600;
-            navObject.menuSelectedBack = value.blue50;
-            navObject.divider = value.grey200;
-            navObject.heading = value.grey900;
+            themeOption.paper = color.paper;
+            ...
             break;
     }
 
     return createTheme({
-        direction: customization.rtlLayout ? 'rtl' : 'ltr', // theme direction
-        palette: themePalatte(navObject), // color palatte
+        direction: config.rtlLayout ? 'rtl' : 'ltr',
+        palette: themePalette(themeOption),
         mixins: {
             toolbar: {
                 minHeight: '48px',
@@ -73,8 +91,18 @@ export function theme(customization) {
                 }
             }
         },
-        typography: themeTypography(navObject), // typography
-        components: componentStyleOverrides(navObject) // overrided component style
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                lg: 1280,
+                xl: 1920
+            }
+        },
+        typography: themeTypography(themeOption),
+        customShadows: customShadows(config.navType, themeOption),
+        components: componentStyleOverrides(themeOption)
     });
 }
 
@@ -82,80 +110,252 @@ export default theme;
 
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Typescript" %}
+```typescript
+import { createTheme } from '@material-ui/core/styles';
+
+// assets
+import colors from 'assets/scss/_themes-vars.module.scss';
+import theme1 from 'assets/scss/_theme1.module.scss';
+import theme2 from 'assets/scss/_theme2.module.scss';
+import theme3 from 'assets/scss/_theme3.module.scss';
+import theme4 from 'assets/scss/_theme4.module.scss';
+import theme5 from 'assets/scss/_theme5.module.scss';
+import theme6 from 'assets/scss/_theme6.module.scss';
+
+// project imports
+import componentStyleOverrides from './compStyleOverride';
+import themePalette from './palette';
+import themeTypography from './typography';
+import customShadows from './shadows';
+import { ColorProps, CustomizationStateProps } from 'types';
+
+/**
+ * Represent theme style and structure as per Material-UI
+ * @param {JsonObject} customization customization parameter object
+ */
+
+export const theme = (customization: CustomizationStateProps) => {
+    let color: ColorProps;
+    switch (customization.presetColor) {
+        case 'theme1':
+            color = theme1;
+            break;
+        case 'theme2':
+            color = theme2;
+            break;
+        case 'theme3':
+            color = theme3;
+            break;
+        case 'theme4':
+            color = theme4;
+            break;
+        case 'theme5':
+            color = theme5;
+            break;
+        case 'theme6':
+            color = theme6;
+            break;
+        case 'default':
+        default:
+            color = colors;
+    }
+
+    const themeOption = {
+        ...
+        paper: '',
+        ...
+    };
+
+    switch (customization.navType) {
+        case 'dark':
+            themeOption.paper = color.darkLevel2;
+            ...
+            break;
+        case 'light':
+        default:
+            themeOption.paper = color.paper;
+            ...
+            break;
+    }
+
+    return createTheme({
+        direction: customization.rtlLayout ? 'rtl' : 'ltr',
+        palette: themePalette(themeOption),
+        mixins: {
+            toolbar: {
+                minHeight: '48px',
+                padding: '16px',
+                '@media (min-width: 600px)': {
+                    minHeight: '48px'
+                }
+            }
+        },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                lg: 1280,
+                xl: 1920
+            }
+        },
+        typography: themeTypography(themeOption),
+        customShadows: customShadows(customization.navType, themeOption),
+        components: componentStyleOverrides(themeOption)
+    });
+};
+
+export default theme;
+
+```
+{% endtab %}
+{% endtabs %}
 
 As you can see colors for the theme came from the central location ``**`import value from '../assets/scss/_themes-vars.module.scss';`**
 
+{% tabs %}
+{% tab title="\_themes-vars.module.scss" %}
 ```css
-// Paper & Background Color
+// paper & background
 $paper: #ffffff;
-$background: #ffffff;
 
-// Primary Colors
-$blue50: #e3f2fd;
+// primary
+$primaryLight: #e3f2fd;
 ...
 
-// Success Colors
-$A100: #b9f6ca;
-..
-
-// Purple Colors
-$deepPurple50: #ede7f6;
+// secondary
+$secondaryLight: #ede7f6;
 ...
 
-// Error Colors
-$red200: #ef9a9a;
+// success Colors
+$successLight: #b9f6ca;
 ...
 
-// Orange Colors
-$deepOrange50: #fbe9e7;
+// error
+$errorLight: #ef9a9a;
 ...
 
-// Warning Colors
-$amber50: #fff8e1;
+// orange
+$orangeLight: #fbe9e7;
 ...
 
-// Grey Colors
+// warning
+$warningLight: #fff8e1;
+...
+
+// grey
 $grey50: #fafafa;
 ...
 
-// Dark Theme Variants
+//-----------------------|| DARK THEME VARIANTS ||-----------------------//
 
-$darkLevel1: #29314f;
+// paper & background
+$darkBackground: #1a223f; // level 3
+$darkPaper: #111936; // level 4
+
+// dark 800 & 900
+$darkLevel1: #29314f; // level 1
+$darkLevel2: #212946; // level 2
+
+// primary dark
+$darkPrimaryLight: #e3f2fd;
 ...
 
-$textDarkTitle: #d7dcec;
+// secondary dark
+$darkSecondaryLight: #d1c4e9;
 ...
 
-// this will use in javascript
+// text variants
+$darkTextTitle: #d7dcec;
+...
+
+//-----------------------|| JAVASCRIPT ||-----------------------//
+
 :export {
+    // paper & background
     paper: $paper;
-    ...
 
-    darkLevel1: $darkLevel1;
-    ...
+    // primary
+    primaryLight: $primaryLight;
+    primary200: $primary200;
+    primaryMain: $primaryMain;
+    primaryDark: $primaryDark;
+    primary800: $primary800;
 
-    blue50: $blue50;
-    ...
+    // secondary
+    secondaryLight: $secondaryLight;
+    secondary200: $secondary200;
+    secondaryMain: $secondaryMain;
+    secondaryDark: $secondaryDark;
+    secondary800: $secondary800;
 
-    A100: $A100;
-    ...
+    // success
+    successLight: $successLight;
+    success200: $success200;
+    successMain: $successMain;
+    successDark: $successDark;
 
-    deepPurple50: $deepPurple50;
-    ...
+    // error
+    errorLight: $errorLight;
+    errorMain: $errorMain;
+    errorDark: $errorDark;
 
-    amber50: $amber50;
-    ...
+    // orange
+    orangeLight: $orangeLight;
+    orangeMain: $orangeMain;
+    orangeDark: $orangeDark;
 
+    // warning
+    warningLight: $warningLight;
+    warningMain: $warningMain;
+    warningDark: $warningDark;
+
+    // grey
     grey50: $grey50;
-    ...
-    red200: $red200;
-    ...
+    grey100: $grey100;
+    grey200: $grey200;
+    grey300: $grey300;
+    grey500: $grey500;
+    grey600: $grey600;
+    grey700: $grey700;
+    grey900: $grey900;
 
-    deepOrange50: $deepOrange50;
-    ...
+    //-----------------------|| DARK THEME VARIANTS ||-----------------------//
+
+    // paper & background
+    darkPaper: $darkPaper;
+    darkBackground: $darkBackground;
+
+    // dark 800 & 900
+    darkLevel1: $darkLevel1;
+    darkLevel2: $darkLevel2;
+
+    // text variants
+    darkTextTitle: $darkTextTitle;
+    darkTextPrimary: $darkTextPrimary;
+    darkTextSecondary: $darkTextSecondary;
+
+    // primary dark
+    darkPrimaryLight: $darkPrimaryLight;
+    darkPrimaryMain: $darkPrimaryMain;
+    darkPrimaryDark: $darkPrimaryDark;
+    darkPrimary200: $darkPrimary200;
+    darkPrimary800: $darkPrimary800;
+
+    // secondary dark
+    darkSecondaryLight: $darkSecondaryLight;
+    darkSecondaryMain: $darkSecondaryMain;
+    darkSecondaryDark: $darkSecondaryDark;
+    darkSecondary200: $darkSecondary200;
+    darkSecondary800: $darkSecondary800;
 }
 
 ```
+{% endtab %}
+{% endtabs %}
 
 You can check other settings like theme typography, palette, and components style override in the same folder. **`..src\themes`**
 
@@ -217,13 +417,13 @@ export function themeTypography(theme) {
 ```
 {% endcode %}
 
-This will apply to all places where you used Typography variant as **`h5`**
+This will apply to all places where you used Typography variants as **`h5`**
 
 **`<Typography variant="h5"...>`**
 
 #### Customize MUI Component style
 
-We have provided a central location to override any default style of any component. All the overrides style exist in **`src\themes\compStyleOverride.js`**
+We have provided a central location to override any default style of any component. All the overrides styles exist in **`src\themes\compStyleOverride.js`**
 
 {% code title="compStyleOverride.js" %}
 ```javascript

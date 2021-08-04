@@ -4,11 +4,19 @@ description: Start working with Berry with minimum setup by creating new project
 
 # Integration
 
-With the years of experience and after crafted many themes, we come to know that, users often confuse with how to use all those components with most of the admin templates which they downloaded/purchased from the internet. If you ever downloaded admin themes, you might come across questions like, _**"how can I use this component in the project?", "How can I create a new project and set up theme/components?", "Can I have minimal code-base to start?"**_ etc. If you ever found yourself in such a situation, we came here to the rescue. 
+With the years of experience and after crafted many templates, we come to know that, users often confuse with how to use all those components with most of the admin templates. If you ever downloaded admin template, you might come across questions like,
 
-Berry structured with a huge set of ready-to-use components. We tried to provide as many as possible components with customization so that you can integrate those directly into your projects. 
+"_**How can I use components in the project?"**_
 
-In this Integration article, we are going to explain, how can you create new a project with minimum setup and integrate some components as per your need. so let get' started.
+_**"How can I create a new project and set up theme/components?"**_
+
+_**"Can I have minimal code-base to start?**"_  _****_etc. 
+
+If you ever found yourself in such a situation, we came here to the rescue. 
+
+Berry is structured with a huge set of ready-to-use components. We tried to provide as many as possible components with customization so that you can integrate those directly into your projects. 
+
+In this Integration guide, we are going to explain, how can you create new a project with minimum setup and integrate some components as per your need. so let get' started.
 
 {% embed url="https://youtu.be/pIafoWJsd\_w" %}
 
@@ -16,10 +24,10 @@ In this Integration article, we are going to explain, how can you create new a p
 
 ## Get started with Skeleton
 
-If you have a purchased theme, it already comes with a skeleton structure, so that you can start directly from there. **Skeleton is a folder structure created using react-script with minimal files from the full version to get started**. It has all the dependencies preloaded in `package.json` so you do not need to add any additional dependency unless needed from your side. It has a sample page to get started; With that, Routes, menus, styles, configuration, and many other things have already set into that which saves ample no. of hours to set up a new project. Isn't it cool and time-savvy?
+If you have a purchased theme, it already comes with a skeleton structure, so that you can start directly from there. **Skeleton is a folder structure created using react-script with minimal files from the full version to get started**. It has all the dependencies preloaded in `package.json` so you do not need to add any additional dependency unless needed from your side. It has a sample page to get started; With that, Routes, menus, styles, configuration, and many other things have already been set into that which saves ample no. of hours to set up a new project. Isn't it cool and time-savvy?
 
 {% hint style="warning" %}
-Skeleton version only available in purchased theme.
+Skeleton version only available in purchase theme.
 {% endhint %}
 
 So when you run the project using yarn/npm, you will see a minimal site like below:
@@ -80,5 +88,5 @@ Cool and straightforward, right?
 
 You can do the same for other components and design your pages as per your needs. We have made common and reusable controls as well which you can see inside `/src/ui-component`. Feel free to refer to those as well and start developing your page.
 
-I hope, we cover some basics to get started with Berry template and how to integrate for your new project. 
+I hope, we cover some basics to get started with Berry template and how to integrate it for your new project. 
 
