@@ -8,7 +8,7 @@ description: Defines change log
 
 * Upgrade to Material-UI Beta: 5.0.0-beta.1
 * Upgrade to react-router: 6.0.0-beta.0
-* E-Commerce App
+* [E-Commerce](https://berrydashboard.io/e-commerce/products) App
   * Product List
   * Product Details
   * Checkout
