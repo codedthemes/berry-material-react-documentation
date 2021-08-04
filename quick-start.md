@@ -8,6 +8,11 @@ description: Quick start your project using Berry.
 
 > If you prefer reading docs, continue reading below instead watching video.
 
+* Installation
+* Start
+* Build & Deploy
+* Deploy on server
+
 ### Installation
 
 Navigate to your root folder **`(i.e. berry-material-react)`**
