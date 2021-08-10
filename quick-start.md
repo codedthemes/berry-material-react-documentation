@@ -22,6 +22,10 @@ Install Packages by **npm** or **yarn** as per your preferences. Here we are usi
 c:\berry-material-react> yarn
 ```
 
+{% hint style="info" %}
+**We would recommend yarn over npm**. Why? see this: [https://www.whitesourcesoftware.com/free-developer-tools/blog/npm-vs-yarn-which-should-you-choose/](https://www.whitesourcesoftware.com/free-developer-tools/blog/npm-vs-yarn-which-should-you-choose/)
+{% endhint %}
+
 ### Start
 
 After package installation, you can start your app by using **`yarn start`** command
