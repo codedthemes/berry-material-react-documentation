@@ -25,7 +25,7 @@ We love our community and customer base to achieve the best possible upcoming fe
 * Megamenu
 * Search filter options menu
 
-**Forms**
+**Forms & Table**
 
 * ~~Form Wizards~~
 * ~~Form Layouts~~
@@ -34,6 +34,7 @@ We love our community and customer base to achieve the best possible upcoming fe
   * ~~Horizontal~~
   * ~~Sticky Header~~
   * ~~Action bar~~
+* Tree Table
 
 **Misc**
 
