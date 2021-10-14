@@ -6,11 +6,15 @@ description: >-
 
 # Folder Structure
 
-{% embed url="https://youtu.be/IJ\_zQlPZvZ4?list=PLknn3jaIuWiDKKEy3EO-p5-MP1nSOgUr1" caption="Folder Structure" %}
+{% embed url="https://youtu.be/IJ_zQlPZvZ4?list=PLknn3jaIuWiDKKEy3EO-p5-MP1nSOgUr1" %}
+Folder Structure
+{% endembed %}
 
-> If you prefer reading docs, continue reading below instead watching video.
+> If you prefer reading docs, continue reading below instead of watching videos.
 
-Under **`berry-material-react/`** directory, You will find following folder structure.
+
+
+Under the**`berry-material-react/`** directory, You will find the following folder structure.
 
 {% tabs %}
 {% tab title="Folder Structure" %}
@@ -51,4 +55,3 @@ berry-material-react
 ```
 {% endtab %}
 {% endtabs %}
-
