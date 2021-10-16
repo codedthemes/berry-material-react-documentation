@@ -39,12 +39,12 @@ berry-material-react
 │   │   ├── MinimalLayout  -> Layout for mimimal components & routers
 │   │   ├── NavigationScroll.js
 │   │   └── NavMotion.js
-│   ├── menu-items.js      -> menu data
+│   ├── menu-items         -> menu items
 │   ├── routes             -> different route based on layouts
 │   ├── store              -> Redux actions, reducers
 │   ├── themes             -> Contains application style and theme
 │   ├── types              -> common types for Typescript. Exist only in Typescript
-│   ├── ui-component       -> Template custom components
+│   ├── ui-component       -> Template custom & reusable components
 │   ├── utils
 │   │   ├── locales        -> different locale json files
 │   │   ├── route-guard    -> Auth guard to prevent unexpected navigations

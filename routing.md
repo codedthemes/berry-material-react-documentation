@@ -14,7 +14,7 @@ You can use the below explanation to add/remove menu routes and their menu items
 
 ## Configure route
 
-Open**`...\src\routes\index.js`**You will find the below example code. In the below code we have shown four different routes. **`<MainRoutes/>`** is the main layout routing you see after login.
+Open `...\src\routes\index.js` You will find the below example code. In the below code we have shown four different routes. **`<MainRoutes/>`** is the main layout routing you see after login.
 
 {% tabs %}
 {% tab title="Javascript" %}
@@ -22,7 +22,7 @@ Open**`...\src\routes\index.js`**You will find the below example code. In the be
 ...
 ...
 
-// ===========================|| ROUTING RENDER ||=========================== //
+// ===============|| ROUTING RENDER ||=================== //
 
 export default function ThemeRoutes() {
     return useRoutes([
@@ -31,7 +31,6 @@ export default function ThemeRoutes() {
         LoginRoutes, 
         MainRoutes]);
 }
-
 ```
 {% endtab %}
 
@@ -40,7 +39,7 @@ export default function ThemeRoutes() {
 ...
 ...
 
-// ==============================|| ROUTING RENDER ||======================== //
+// ===============|| ROUTING RENDER ||=================== //
 
 export default function ThemeRoutes() {
     return useRoutes([
@@ -49,14 +48,13 @@ export default function ThemeRoutes() {
         LoginRoutes, 
         MainRoutes]);
 }
-
 ```
 {% endtab %}
 {% endtabs %}
 
 ### Add New menu/route in the main layout
 
-To add one more menu item in ``**`<MainRoutes />`**, update the following file at the same location **`...\src\routes\MainRoutes.js`**
+To add one more menu item in **`<MainRoutes />`**, update the following file at the same location **`...\src\routes\MainRoutes.js`**
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -88,7 +86,6 @@ const MainRoutes = {
 };
 
 export default MainRoutes;
-
 ```
 {% endcode %}
 {% endtab %}
@@ -121,12 +118,10 @@ const MainRoutes = {
 };
 
 export default MainRoutes;
-
 ```
 {% endtab %}
 {% endtabs %}
 
 {% hint style="warning" %}
-Any route added in **`<MainLayout>`** will automatically go through**`<AuthGuard>`**
+Any route added in **`<MainLayout>`** will automatically go through **\<AuthGuard>**
 {% endhint %}
-

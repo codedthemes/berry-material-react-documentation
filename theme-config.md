@@ -8,7 +8,7 @@ Customize Berry with your theme. You can change the colors, the typography, and 
 
 ## Theme configuration
 
-The whole theme can be configured from the folder **`..\src\themes`** . Theme initialization starts in**`index.js`** , where palette, typography, and component's overridable style exist.
+The whole theme can be configured from the folder **`..\src\themes`** . Theme initialization starts in **`index.js`**, where palette, typography, and component's overridable style exist.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -107,7 +107,6 @@ export function theme(config) {
 }
 
 export default theme;
-
 ```
 {% endcode %}
 {% endtab %}
@@ -209,15 +208,14 @@ export const theme = (customization: CustomizationStateProps) => {
 };
 
 export default theme;
-
 ```
 {% endtab %}
 {% endtabs %}
 
-As you can see colors for the theme came from the central location ``**`import value from '../assets/scss/_themes-vars.module.scss';`**
+As you can see colors for the theme came from the central location **`import value from '../assets/scss/_themes-vars.module.scss';`**
 
 {% tabs %}
-{% tab title="\_themes-vars.module.scss" %}
+{% tab title=":themes-vars.module.scss" %}
 ```css
 // paper & background
 $paper: #ffffff;
@@ -352,7 +350,6 @@ $darkTextTitle: #d7dcec;
     darkSecondary200: $darkSecondary200;
     darkSecondary800: $darkSecondary800;
 }
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -361,7 +358,7 @@ You can check other settings like theme typography, palette, and components styl
 
 ### How to customize it?
 
-You might come across questions like how to change a theme's **primary** color? How to change textbox or other components which can apply to an entire theme?  
+You might come across questions like how to change a theme's **primary** color? How to change textbox or other components which can apply to an entire theme?
 
 #### Customize Theme Colors
 
@@ -388,7 +385,6 @@ export function themePalatte(theme) {
 
     };
 }
-
 ```
 {% endcode %}
 
@@ -413,7 +409,6 @@ export function themeTypography(theme) {
         ...
     };
 }
-
 ```
 {% endcode %}
 
@@ -454,9 +449,7 @@ export function componentStyleOverrides(theme) {
         }
     };
 }
-
 ```
 {% endcode %}
 
 You can add default property for any MUI component and it will be applied everywhere. We emitted lines to view it better in the above code block but you can see many controls' styles override in the same file. Feel free to change it as per your need.
-

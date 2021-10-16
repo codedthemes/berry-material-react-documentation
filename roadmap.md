@@ -14,7 +14,7 @@ We love our community and customer base to achieve the best possible upcoming fe
 
 * ~~E-Commerce~~
 * File Manager
-* Kanban
+* ~~Kanban~~
 * Saas Extra Pages
 
 **Styling**
@@ -39,4 +39,4 @@ We love our community and customer base to achieve the best possible upcoming fe
 **Misc**
 
 * Add footer variants
-
+* next js skeleton version (Get started Version)
