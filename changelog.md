@@ -10,19 +10,22 @@ description: Defines change log
 * Kanban App
 * Simplified Authentication flow
 * Upgrade react-router package
-* ~~Opt .jsx for JS version. ~~[~~Does it make any difference?~~](https://stackoverflow.com/questions/46169472/reactjs-js-vs-jsx)~~~~
 * Other improvements like styling, documentation, etc
 * Added new tutorial videos for documentation
-  * How to Video series
-  * Authentication Video
+  * [How to Video series](https://www.youtube.com/playlist?list=PLknn3jaIuWiALE6UUYYBaefZedx18fN-C)
+  * [Authentication Video](https://www.youtube.com/watch?v=daHRKlIi6Uc)
 
 ### Migration From v2.0.0 to v3.0.0
 
-Major changes in this version are to migrate the latest MUI stable version. withStyle and makeStyle are no longer supported. So if you wanna migrate your project to the latest stable version, you can do two things.
+* Major changes in this version are to migrate the latest MUI stable version. withStyle and makeStyle are no longer used. So if you wanna migrate your project to the latest stable version, you can do the following.
+  1. &#x20;Run style CodeMode by M-UI
+     * [https://mui.com/guides/migration-v4](https://mui.com/guides/migration-v4/#migrate-from-jss)
 
-1. Run CodeMode by M-UI
-   * [https://mui.com/guides/migration-v4](https://mui.com/guides/migration-v4)
-2. Compare style with v3.0.0 and move it to your code
+{% hint style="success" %}
+We have not used codemod for migration but we created style components and then used that. If you prefer that approach, you can do that as well. There is not much difference.
+{% endhint %}
+
+* For the Authentication, We have simplified it, so you can replace it as a whole. Just refer Authentication video.
 
 ## v2.0.0 - (03-08-2021)
 
