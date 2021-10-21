@@ -4,7 +4,7 @@ description: Defines change log
 
 # Changelog
 
-## v3.0.0 - (20-10-2021)
+## v3.0.0 - (21-10-2021)
 
 * Migration to M-UI 5.0.3 stable version (Major change)
 * Kanban App
