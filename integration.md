@@ -4,13 +4,13 @@ description: Start working with Berry with minimum setup by creating new project
 
 # Integration
 
-With the years of experience and after crafted many templates, we come to know that, users often confuse with how to use all those components with most of the admin templates. If you ever downloaded admin template, you might come across questions like,
+With the years of experience and after crafted many templates, we come to know that, users often confuse with how to use all those components with most of the admin templates. If you ever downloaded an admin template, you might come across questions like,
 
 "_**How can I use components in the project?"**_
 
 _**"How can I create a new project and set up theme/components?"**_
 
-_**"Can I have minimal code-base to start?**"_ \_\*\*\*\*\_etc.
+_**"Can I have minimal code-base to start?**"_ etc.
 
 If you ever found yourself in such a situation, we came here to the rescue.
 
@@ -22,7 +22,7 @@ In this Integration guide, we are going to explain, how can you create new a pro
 Integration
 {% endembed %}
 
-> If you prefer reading docs, continue reading below instead watching video.
+> If you prefer reading docs, continue reading below instead of watching the video.
 
 ## Get started with Skeleton
 
@@ -90,4 +90,4 @@ Cool and straightforward, right?
 
 You can do the same for other components and design your pages as per your needs. We have made common and reusable controls as well which you can see inside `/src/ui-component`. Feel free to refer to those as well and start developing your page.
 
-I hope, we cover some basics to get started with Berry template and how to integrate it for your new project.
+I hope, we cover some basics to get started with the Berry template and how to integrate it for your new project.

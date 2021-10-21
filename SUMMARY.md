@@ -17,4 +17,4 @@
 * [RoadMap](roadmap.md)
 * [Support](support.md)
 * [Changelog](changelog.md)
-
+* [FAQ](faq.md)
