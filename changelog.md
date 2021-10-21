@@ -6,26 +6,28 @@ description: Defines change log
 
 ## v3.0.0 - (21-10-2021)
 
-* Migration to M-UI 5.0.3 stable version (Major change)
-* Kanban App
+* Migration to [MUI 5.0.4](https://github.com/mui-org/material-ui/releases/tag/v5.0.4) stable version (Major change)
+* [Kanban](https://berrydashboard.io/app/kanban) full-featured App
 * Simplified Authentication flow
-* Upgrade react-router package
-* Other improvements like styling, documentation, etc
-* Added new tutorial videos for documentation
+* Upgrade to react-router v6.0.0-beta.5
+* Other improvements like Styling, Documentation.
+* Figma Design file - Improvement and added Kanban app
+* Added new videos in the Berry Tutorial series.
   * [How to Video series](https://www.youtube.com/playlist?list=PLknn3jaIuWiALE6UUYYBaefZedx18fN-C)
   * [Authentication Video](https://www.youtube.com/watch?v=daHRKlIi6Uc)
 
 ### Migration From v2.0.0 to v3.0.0
 
-* Major changes in this version are to migrate the latest MUI stable version. withStyle and makeStyle are no longer used. So if you wanna migrate your project to the latest stable version, you can do the following.
-  1. &#x20;Run style CodeMode by M-UI
+* Berry 3.0 has major changes with the support of MUI 5.0.x stable version. **withStyle** and **makeStyle** are no longer used. So if you want to migrate your project to the latest stable version, you can do the following.
+  1. &#x20;Run style CodeMode by MUI
      * [https://mui.com/guides/migration-v4](https://mui.com/guides/migration-v4/#migrate-from-jss)
 
 {% hint style="success" %}
-We have not used codemod for migration but we created style components and then used that. If you prefer that approach, you can do that as well. There is not much difference.
+We have not used _codemod_ for migration but we created style components and then used that. If you prefer that approach, you can do that as well.
 {% endhint %}
 
-* For the Authentication, We have simplified it, so you can replace it as a whole. Just refer Authentication video.
+* For the Authentication, We have improved and simplified it, so you can replace it as a whole. Just refer to this [Authentication video](https://www.youtube.com/watch?v=daHRKlIi6Uc).
+* Let us know if you need migration assistance via the [Support panel](https://codedthemes.support-hub.io).
 
 ## v2.0.0 - (03-08-2021)
 

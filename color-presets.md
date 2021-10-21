@@ -9,7 +9,7 @@ Berry come up with 6+ theme color presets. You can now change the available colo
 Color Preset files are available in **`src\assets\scss\`** directory.
 
 {% tabs %}
-{% tab title="src\\assets\\scss\\" %}
+{% tab title="src\assets\scss\" %}
 ```
 ..
 ├── _theme1.module.scss
@@ -54,10 +54,6 @@ const config: {
 };
 
 export default config;
-
 ```
 {% endtab %}
 {% endtabs %}
-
-
-

@@ -4,9 +4,9 @@ description: Berry - React Admin Template Documentation
 
 # Documentation
 
-## ABOUT BERRY
+![](.gitbook/assets/doc-v3.0.jpg)
 
-![Introducing Berry v3.0.0](.gitbook/assets/doc-v2.0.png)
+## ABOUT BERRY
 
 [Berry](https://berrydashboard.io) is `developer-friendly` & highly customizable React Admin Template based on [Material-UI](http://material-ui.com).
 
