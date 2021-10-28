@@ -10,12 +10,14 @@ We love our community and customer base to achieve the best possible upcoming fe
 
 ~~TypeScript version~~
 
+Next.js Support (will come early in Nov-2021)
+
 **Apps**
 
 * ~~E-Commerce~~
 * File Manager
 * ~~Kanban~~
-* Saas Extra Pages
+* Saas Extra Pages - Drop your suggestion at [here](https://codedthemes.support-hub.io)
 
 **Styling**
 
@@ -34,6 +36,8 @@ We love our community and customer base to achieve the best possible upcoming fe
   * ~~Horizontal~~
   * ~~Sticky Header~~
   * ~~Action bar~~
+* More Authentication Pages specifically for Saas-based projects.
+  * Wizard Process login
 * Tree Table
 
 **Misc**
