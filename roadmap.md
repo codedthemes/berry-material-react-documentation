@@ -10,7 +10,9 @@ We love our community and customer base to achieve the best possible upcoming fe
 
 ~~TypeScript version~~
 
-Next.js Support (will come early in Nov-2021)
+~~Next.js TypeScript version~~
+
+Next.js JavaScript version
 
 **Apps**
 

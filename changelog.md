@@ -7,6 +7,7 @@ description: Defines change log
 ## v3.0.0 - (21-10-2021)
 
 * Migration to [MUI 5.0.4](https://github.com/mui-org/material-ui/releases/tag/v5.0.4) stable version (Major change)
+* Next.js TypeScript version (Released on 31-10-2021)
 * [Kanban](https://berrydashboard.io/app/kanban) full-featured App
 * Simplified Authentication flow
 * Upgrade to react-router v6.0.0-beta.5
