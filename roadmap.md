@@ -12,14 +12,16 @@ We love our community and customer base to achieve the best possible upcoming fe
 
 ~~Next.js TypeScript version~~
 
-Next.js JavaScript version
+~~Next.js JavaScript version~~
+
+Redux toolkit
 
 **Apps**
 
 * ~~E-Commerce~~
 * File Manager
 * ~~Kanban~~
-* Saas Extra Pages - Drop your suggestion at [here](https://codedthemes.support-hub.io)
+* Saas Extra Pages - Drop your suggestion [here](https://codedthemes.support-hub.io)
 
 **Styling**
 
@@ -40,9 +42,10 @@ Next.js JavaScript version
   * ~~Action bar~~
 * More Authentication Pages specifically for Saas-based projects.
   * Wizard Process login
+  * AWS Amplify
 * Tree Table
 
 **Misc**
 
 * Add footer variants
-* next js skeleton version (Get started Version)
+* ~~next js skeleton version~~
